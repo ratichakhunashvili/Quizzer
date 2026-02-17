@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizzer - Quiz Manager</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Toast Notification -->
+    <div id="toast-notification" class="toast hidden"></div>
+
+    <div id="login-container" class="container">
+        <div class="login-card">
+            <h1>Quizzer</h1>
+            <p class="subtitle">Quiz Management System</p>
+            
+            <div class="role-selector">
+                <button class="role-btn active" data-role="admin">Admin Login</button>
+                <button class="role-btn" data-role="student">Student Login</button>
+            </div>
+
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit" class="btn-primary">Login</button>
+            </form>
+
+            <p class="info-text">
+                <strong>Demo Accounts:</strong><br>
+                Admin: admin / admin123<br>
+                Student: student / student123
+            </p>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="admin-dashboard" class="container hidden">
+        <div class="dashboard">
+            <div class="header">
+                <h1>Admin Dashboard</h1>
+                <button class="btn-logout" onclick="logout()">Logout</button>
+            </div>
+
+            <div class="admin-content">
+                <div class="admin-nav">
+                    <button class="admin-nav-btn active" data-view="create-task">Create Task</button>
+                    <button class="admin-nav-btn" data-view="view-tasks">View Tasks</button>
+                    <button class="admin-nav-btn" data-view="view-submissions">View Submissions</button>
+                </div>
+
+                <!-- Create Task View -->
+                <div id="view-create-task" class="admin-view">
+                    <div class="create-task-section">
+                        <h2>Create New Task</h2>
+                        <form id="create-task-form">
+                            <div class="form-group">
+                                <label for="task-text">Task Text:</label>
+                                <textarea id="task-text" required placeholder="Enter the task question or prompt"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="task-type">Task Type:</label>
+                                <select id="task-type" required onchange="updateTaskTypeUI()">
+                                    <option value="multiple-choice">Multiple Choice</option>
+                                    <option value="text-input">Text Input</option>
+                                </select>
+                            </div>
+
+                            <!-- Multiple Choice Answers -->
+                            <div id="multiple-choice-section">
+                                <div class="form-group">
+                                    <label>Possible Answers:</label>
+                                    <div id="answers-container">
+                                        <div class="answer-input-group">
+                                            <input type="text" class="answer-input" placeholder="Answer option 1" required>
+                                            <button type="button" class="btn-remove" onclick="removeAnswer(this)">Remove</button>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn-secondary" id="add-answer-btn" onclick="addAnswerInput()">+ Add Answer</button>
+                                </div>
+                            </div>
+
+                            <!-- Text Input Correct Answer -->
+                            <div id="text-input-section" class="hidden">
+                                <p style="color: #999; font-size: 0.9em; margin-bottom: 15px;">
+                                    📝 Students will submit their text answers. No correct answer needed.
+                                </p>
+                            </div>
+
+                            <button type="submit" class="btn-primary">Create Task</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- View Tasks -->
+                <div id="view-view-tasks" class="admin-view hidden">
+                    <div class="tasks-list-section">
+                        <h2>All Tasks</h2>
+                        <div id="admin-tasks-list" class="tasks-list">
+                            <p class="empty-state">No tasks created yet</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- View Submissions -->
+                <div id="view-view-submissions" class="admin-view hidden">
+                    <div class="submissions-section">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                            <h2 style="margin: 0;">Student Submissions</h2>
+                            <button class="btn-secondary" onclick="refreshSubmissions()" style="padding: 8px 16px; font-size: 14px;">🔄 Refresh</button>
+                        </div>
+                        <div id="admin-submissions-list" class="tasks-list">
+                            <p class="empty-state">No submissions yet</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Student Dashboard -->
+    <div id="student-dashboard" class="container hidden">
+        <div class="dashboard">
+            <div class="header">
+                <h1>Student Dashboard</h1>
+                <button class="btn-logout" onclick="logout()">Logout</button>
+            </div>
+
+            <div class="student-content">
+                <div id="student-tasks-view" class="student-view">
+                    <h2>Available Tasks</h2>
+                    <div id="student-tasks-list" class="tasks-list">
+                        <p class="empty-state">No tasks available yet</p>
+                    </div>
+                </div>
+
+                <div id="student-submission-view" class="student-view hidden">
+                    <div class="submission-panel">
+                        <div class="submission-header">
+                            <button class="btn-back" onclick="backToTasksList()">← Back to Tasks</button>
+                        </div>
+                        <div id="submission-content"></div>
+                    </div>
+                </div>
+
+                <div id="student-success-view" class="student-view hidden">
+                    <div class="success-panel" id="success-panel-content">
+                        <div id="success-details"></div>
+                        <button class="btn-primary" onclick="backToTasksList()" style="margin-top: 20px; max-width: 300px;">Continue to Tasks</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
