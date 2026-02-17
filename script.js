@@ -503,6 +503,17 @@ function setTextCorrectAnswer(taskId) {
     showToast('Correct answer set', 'success');
 }
 
+// Allow student to retake the quiz
+function allowStudentRetake(studentName) {
+    if (confirm(`Are you sure you want to allow ${studentName} to retake the quiz? Their previous submissions will be deleted.`)) {
+        // Remove all submissions for this student
+        appData.submissions = appData.submissions.filter(sub => sub.studentName !== studentName);
+        saveData();
+        renderAdminSubmissions();
+        showToast(`${studentName} can now retake the quiz!`, 'success');
+    }
+}
+
 // Escape HTML to prevent XSS
 function escapeHtml(text) {
     const div = document.createElement('div');
