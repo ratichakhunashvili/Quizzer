@@ -272,7 +272,7 @@ function renderAdminTasks() {
                     }).join('')}
                 </div>`
             : `<div class="answers-section" style="margin-top: 15px;">
-                    <p style="color: #0066cc; font-weight: 600; font-size: 0.9em;">✏️ Students will type their answer</p>
+                    <p style="color: #8b5cf6; font-weight: 600; font-size: 0.9em;">✏️ Students will type their answer</p>
                     ${task.correctAnswer ? `<p style="color: #4CAF50; font-weight: 600; margin-top: 10px;">✓ Correct Answer: ${escapeHtml(task.correctAnswer)}</p>` : ''}
                     <input type="text" id="correct-answer-${task.id}" placeholder="Enter correct answer..." style="width: 100%; padding: 10px; margin-top: 10px; border: 1px solid #ddd; border-radius: 6px;">
                     <button class="btn-secondary" style="margin-top: 10px; width: 100%; padding: 10px;" onclick="setTextCorrectAnswer(${task.id})">Set Correct Answer</button>
@@ -285,7 +285,7 @@ function renderAdminTasks() {
                     <h3 style="margin: 0 0 12px 0;">Task #${index + 1}</h3>
                     <div class="task-text"><strong>📝 Question:</strong> ${escapeHtml(task.text)}</div>
                 </div>
-                <span style="background: #0066cc; color: white; padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; white-space: nowrap; margin-left: 15px;">
+                <span style="background: #8b5cf6; color: white; padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; white-space: nowrap; margin-left: 15px;">
                     ${typeLabel}
                 </span>
             </div>
@@ -367,7 +367,7 @@ function renderStudentTasks() {
                     <h3 style="margin: 0 0 12px 0;">Task #${index + 1}</h3>
                     <div class="task-text"><strong>📝 Question:</strong> ${escapeHtml(task.text)}</div>
                 </div>
-                <span style="background: #0066cc; color: white; padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; white-space: nowrap; margin-left: 15px;">
+                <span style="background: #8b5cf6; color: white; padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; white-space: nowrap; margin-left: 15px;">
                     ${task.type === 'multiple-choice' ? '🎯 Multiple Choice' : '📄 Text Input'}
                 </span>
             </div>
@@ -690,7 +690,7 @@ function showBulkSubmissionSuccess(submissions) {
                 <div style="flex: 1;">
                     <p style="margin: 0 0 8px 0; font-weight: 600; color: #333;">Question ${index + 1}</p>
                     <p style="margin: 0 0 12px 0; font-size: 15px; color: #555;">${escapeHtml(sub.taskText)}</p>
-                    <p style="margin: 0; font-size: 14px; background: #f5f5f5; padding: 10px; border-left: 3px solid #0066cc; border-radius: 4px;">
+                    <p style="margin: 0; font-size: 14px; background: #f5f5f5; padding: 10px; border-left: 3px solid #8b5cf6; border-radius: 4px;">
                         <strong>Your Answer:</strong> ${escapeHtml(sub.answer)}
                     </p>
                 </div>
@@ -824,7 +824,7 @@ function renderAdminSubmissions() {
                         <p style="margin: 0; font-size: 13px; color: #999;">
                             ${sub.taskType === 'multiple-choice' ? '🎯 Multiple Choice' : '📄 Text Input'}
                         </p>
-                        <div style="background: #f5f5f5; border-left: 3px solid #0066cc; padding: 10px; margin-top: 8px; border-radius: 4px;">
+                        <div style="background: #f5f5f5; border-left: 3px solid #8b5cf6; padding: 10px; margin-top: 8px; border-radius: 4px;">
                             <strong style="color: #333;">Student's Answer:</strong>
                             <p style="margin: 4px 0 0 0; color: #555;">${escapeHtml(sub.answer)}</p>
                         </div>

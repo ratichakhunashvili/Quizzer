@@ -39,7 +39,7 @@ body {
 }
 
 .login-card h1 {
-    color: #0066cc;
+    color: #8b5cf6;
     margin-bottom: 10px;
     text-align: center;
     font-size: 2.2em;
@@ -75,15 +75,15 @@ body {
 }
 
 .role-btn.active {
-    background: #0066cc;
+    background: #8b5cf6;
     color: white;
-    border-color: #0066cc;
-    box-shadow: 0 4px 12px rgba(0, 102, 204, 0.25);
+    border-color: #8b5cf6;
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.25);
 }
 
 .role-btn:hover {
-    border-color: #0066cc;
-    background: #f5f7fa;
+    border-color: #8b5cf6;
+    background: #f5f3ff;
 }
 
 .form-group {
@@ -115,9 +115,9 @@ body {
 .form-group textarea:focus,
 .form-group select:focus {
     outline: none;
-    border-color: #0066cc;
+    border-color: #8b5cf6;
     background: white;
-    box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.1);
+    box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.1);
 }
 
 .form-group textarea {
@@ -142,16 +142,16 @@ body {
 
 .btn-primary {
     width: 100%;
-    background: #0066cc;
+    background: #8b5cf6;
     color: white;
     margin-top: 25px;
     font-size: 1.05em;
 }
 
 .btn-primary:hover {
-    background: #0052a3;
+    background: #7c3aed;
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(0, 102, 204, 0.35);
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.35);
 }
 
 .btn-primary:active {
@@ -159,8 +159,8 @@ body {
 }
 
 .btn-secondary {
-    background: #f5f7fa;
-    color: #0066cc;
+    background: #f5f3ff;
+    color: #8b5cf6;
     margin-top: 12px;
     display: block;
     margin-left: auto;
@@ -169,8 +169,8 @@ body {
 }
 
 .btn-secondary:hover {
-    background: #e8edf2;
-    border-color: #0066cc;
+    background: #ede9fe;
+    border-color: #8b5cf6;
     transform: translateY(-1px);
 }
 
@@ -205,9 +205,9 @@ body {
 .info-text {
     margin-top: 35px;
     padding: 18px;
-    background: #f5f7fa;
+    background: #f5f3ff;
     border-radius: 8px;
-    border-left: 4px solid #0066cc;
+    border-left: 4px solid #8b5cf6;
     font-size: 0.9em;
     color: #555;
     line-height: 1.7;
@@ -223,7 +223,7 @@ body {
 }
 
 .header {
-    background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
     color: white;
     padding: 35px 40px;
     display: flex;
@@ -264,15 +264,15 @@ body {
 }
 
 .admin-nav-btn.active {
-    background: #0066cc;
+    background: #8b5cf6;
     color: white;
-    border-color: #0066cc;
-    box-shadow: 0 2px 8px rgba(0, 102, 204, 0.25);
+    border-color: #8b5cf6;
+    box-shadow: 0 2px 8px rgba(139, 92, 246, 0.25);
 }
 
 .admin-nav-btn:hover {
-    border-color: #0066cc;
-    color: #0066cc;
+    border-color: #8b5cf6;
+    color: #8b5cf6;
 }
 
 .admin-view {
@@ -327,7 +327,7 @@ body {
     background: white;
     padding: 25px;
     border-radius: 8px;
-    border-left: 4px solid #0066cc;
+    border-left: 4px solid #8b5cf6;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
     transition: all 0.3s ease;
     border: 1px solid #e8edf2;
@@ -357,7 +357,7 @@ body {
 }
 
 .answers-section h4 {
-    color: #0066cc;
+    color: #8b5cf6;
     font-size: 0.95em;
     margin-bottom: 12px;
     font-weight: 600;
@@ -368,7 +368,7 @@ body {
     padding: 12px 16px;
     border-radius: 6px;
     margin-bottom: 10px;
-    border-left: 3px solid #0066cc;
+    border-left: 3px solid #8b5cf6;
     font-size: 0.95em;
     color: #666;
 }
@@ -398,7 +398,7 @@ body {
 }
 
 .btn-back {
-    background: #0066cc;
+    background: #8b5cf6;
     color: white;
     padding: 11px 22px;
     border: none;
@@ -410,9 +410,9 @@ body {
 }
 
 .btn-back:hover {
-    background: #0052a3;
+    background: #7c3aed;
     transform: translateX(-2px);
-    box-shadow: 0 2px 8px rgba(0, 102, 204, 0.25);
+    box-shadow: 0 2px 8px rgba(139, 92, 246, 0.25);
 }
 
 .task-submission {
@@ -432,9 +432,9 @@ body {
 }
 
 .task-question {
-    background: #f5f7fa;
+    background: #f5f3ff;
     padding: 25px;
-    border-left: 4px solid #0066cc;
+    border-left: 4px solid #8b5cf6;
     border-radius: 6px;
     margin-bottom: 30px;
     color: #333;
@@ -453,7 +453,7 @@ body {
     cursor: pointer;
     width: 20px;
     height: 20px;
-    accent-color: #0066cc;
+    accent-color: #8b5cf6;
 }
 
 .answer-choice label {
@@ -470,15 +470,15 @@ body {
 }
 
 .answer-choice label:hover {
-    border-color: #0066cc;
-    background: #f5f7fa;
+    border-color: #8b5cf6;
+    background: #f5f3ff;
     transform: translateX(4px);
 }
 
 .answer-choice input[type="radio"]:checked + label {
-    background: #f5f7fa;
-    border-color: #0066cc;
-    box-shadow: 0 2px 8px rgba(0, 102, 204, 0.15);
+    background: #f5f3ff;
+    border-color: #8b5cf6;
+    box-shadow: 0 2px 8px rgba(139, 92, 246, 0.15);
 }
 
 .text-input-answer {
@@ -498,13 +498,13 @@ body {
 
 .text-input-answer input:focus {
     outline: none;
-    border-color: #0066cc;
+    border-color: #8b5cf6;
     background: white;
-    box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.1);
+    box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.1);
 }
 
 .btn-submit-answer {
-    background: #0066cc;
+    background: #8b5cf6;
     color: white;
     padding: 14px 32px;
     border: none;
@@ -517,16 +517,16 @@ body {
 }
 
 .btn-submit-answer:hover {
-    background: #0052a3;
+    background: #7c3aed;
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(0, 102, 204, 0.25);
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.25);
 }
 
 .submission-card {
     background: white;
     padding: 22px;
     border-radius: 6px;
-    border-left: 4px solid #0066cc;
+    border-left: 4px solid #8b5cf6;
     margin-bottom: 18px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
     transition: all 0.3s ease;
@@ -561,7 +561,7 @@ body {
     padding: 15px;
     border-radius: 6px;
     margin: 12px 0;
-    border-left: 4px solid #0066cc;
+    border-left: 4px solid #8b5cf6;
     font-size: 0.95em;
     color: #555;
     border: 1px solid #e8edf2;
@@ -609,11 +609,11 @@ body {
     position: fixed;
     top: 30px;
     right: 30px;
-    background: #0066cc;
+    background: #8b5cf6;
     color: white;
     padding: 16px 24px;
     border-radius: 6px;
-    box-shadow: 0 4px 16px rgba(0, 102, 204, 0.25);
+    box-shadow: 0 4px 16px rgba(139, 92, 246, 0.25);
     z-index: 9999;
     animation: slideIn 0.4s ease;
     max-width: 350px;
@@ -683,7 +683,7 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
     color: white;
     text-align: center;
     padding: 20px;
@@ -735,7 +735,7 @@ body {
 
 .submission-student-name {
     font-weight: bold;
-    color: #0066cc;
+    color: #8b5cf6;
 }
 
 .submission-timestamp {
@@ -746,7 +746,7 @@ body {
 
 .submission-answer {
     background: #f5f5f5;
-    border-left: 3px solid #0066cc;
+    border-left: 3px solid #8b5cf6;
     padding: 12px;
     margin-top: 10px;
     border-radius: 4px;
@@ -758,7 +758,7 @@ body {
 }
 
 .task-group-title {
-    background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
     color: white;
     padding: 12px 16px;
     border-radius: 6px;
@@ -787,8 +787,8 @@ body {
 }
 
 .answer-choice:hover {
-    background: #f5f7fa;
-    border-color: #0066cc;
+    background: #f5f3ff;
+    border-color: #8b5cf6;
 }
 
 .answer-choice input[type="radio"] {
@@ -807,20 +807,20 @@ body {
 
 .answer-choice input[type="radio"]:checked + label {
     font-weight: 600;
-    color: #0066cc;
+    color: #8b5cf6;
 }
 
 .student-submission-group {
     background: white;
-    border: 2px solid #0066cc;
+    border: 2px solid #8b5cf6;
     border-radius: 12px;
     margin-bottom: 20px;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 102, 204, 0.1);
+    box-shadow: 0 2px 8px rgba(139, 92, 246, 0.1);
 }
 
 .student-submission-header {
-    background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
     color: white;
     padding: 16px;
     display: flex;
