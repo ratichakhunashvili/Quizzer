@@ -28,7 +28,6 @@ body {
     display: none !important;
 }
 
-/* Login Card */
 .login-card {
     background: white;
     border-radius: 12px;
@@ -56,7 +55,6 @@ body {
     font-weight: 500;
 }
 
-/* Role Selector */
 .role-selector {
     display: flex;
     gap: 12px;
@@ -77,18 +75,17 @@ body {
 }
 
 .role-btn.active {
-    background: #667eea;
+    background: #0066cc;
     color: white;
-    border-color: #667eea;
-    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+    border-color: #0066cc;
+    box-shadow: 0 4px 12px rgba(0, 102, 204, 0.25);
 }
 
 .role-btn:hover {
-    border-color: #667eea;
-    background: #f0f4ff;
+    border-color: #0066cc;
+    background: #f5f7fa;
 }
 
-/* Form */
 .form-group {
     margin-bottom: 24px;
 }
@@ -128,7 +125,6 @@ body {
     min-height: 100px;
 }
 
-/* Buttons */
 .btn-primary,
 .btn-secondary,
 .btn-logout,
@@ -206,7 +202,6 @@ body {
     transform: translateY(-1px);
 }
 
-/* Info Text */
 .info-text {
     margin-top: 35px;
     padding: 18px;
@@ -219,7 +214,6 @@ body {
     font-weight: 500;
 }
 
-/* Dashboard */
 .dashboard {
     background: white;
     border-radius: 12px;
@@ -244,7 +238,6 @@ body {
     letter-spacing: -0.3px;
 }
 
-/* Admin Content */
 .admin-content,
 .student-content {
     padding: 40px;
@@ -325,7 +318,6 @@ body {
     flex: 1;
 }
 
-/* Tasks List */
 .tasks-list {
     display: grid;
     gap: 20px;
@@ -394,7 +386,6 @@ body {
     font-size: 1.1em;
 }
 
-/* Submission Panel */
 .submission-panel {
     background: #f5f7fa;
     padding: 30px;
@@ -531,7 +522,6 @@ body {
     box-shadow: 0 4px 12px rgba(0, 102, 204, 0.25);
 }
 
-/* Submission Card in Admin View */
 .submission-card {
     background: white;
     padding: 22px;
@@ -615,7 +605,6 @@ body {
     }
 }
 
-/* Toast Notification */
 .toast {
     position: fixed;
     top: 30px;
@@ -663,7 +652,6 @@ body {
     font-size: 1.3em;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
     .login-card {
         padding: 30px 20px;
@@ -689,14 +677,13 @@ body {
     }
 }
 
-/* Success Panel Styles */
 .success-panel {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
     color: white;
     text-align: center;
     padding: 20px;
@@ -731,7 +718,6 @@ body {
     opacity: 0.95;
 }
 
-/* Submission Items */
 .submission-item {
     background: white;
     border: 1px solid #e0e0e0;
@@ -749,7 +735,7 @@ body {
 
 .submission-student-name {
     font-weight: bold;
-    color: #667eea;
+    color: #0066cc;
 }
 
 .submission-timestamp {
@@ -760,7 +746,7 @@ body {
 
 .submission-answer {
     background: #f5f5f5;
-    border-left: 3px solid #667eea;
+    border-left: 3px solid #0066cc;
     padding: 12px;
     margin-top: 10px;
     border-radius: 4px;
@@ -772,7 +758,7 @@ body {
 }
 
 .task-group-title {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
     color: white;
     padding: 12px 16px;
     border-radius: 6px;
@@ -788,7 +774,6 @@ body {
     font-size: 16px;
 }
 
-/* Answer choice styling */
 .answer-choice {
     display: flex;
     align-items: center;
@@ -802,8 +787,8 @@ body {
 }
 
 .answer-choice:hover {
-    background: #f0f4ff;
-    border-color: #667eea;
+    background: #f5f7fa;
+    border-color: #0066cc;
 }
 
 .answer-choice input[type="radio"] {
@@ -822,21 +807,20 @@ body {
 
 .answer-choice input[type="radio"]:checked + label {
     font-weight: 600;
-    color: #667eea;
+    color: #0066cc;
 }
 
-/* Student Submission Group */
 .student-submission-group {
     background: white;
-    border: 2px solid #667eea;
+    border: 2px solid #0066cc;
     border-radius: 12px;
     margin-bottom: 20px;
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 102, 204, 0.1);
 }
 
 .student-submission-header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
     color: white;
     padding: 16px;
     display: flex;
