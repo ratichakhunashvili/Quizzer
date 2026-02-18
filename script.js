@@ -191,6 +191,7 @@ function removeAnswer(button) {
 function createTask() {
     const taskText = document.getElementById('task-text').value;
     const taskType = document.getElementById('task-type').value;
+    const imageFile = document.getElementById('task-image').files[0];
     
     if (!taskText.trim()) {
         showToast('Please enter a task text.', 'error');
@@ -202,9 +203,23 @@ function createTask() {
         text: taskText,
         type: taskType,
         createdBy: currentUser.username,
-        createdAt: new Date().toLocaleString()
+        createdAt: new Date().toLocaleString(),
+        image: null
     };
 
+    if (imageFile) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            task.image = e.target.result;
+            finishTaskCreation(task, taskType);
+        };
+        reader.readAsDataURL(imageFile);
+    } else {
+        finishTaskCreation(task, taskType);
+    }
+}
+
+function finishTaskCreation(task, taskType) {
     if (taskType === 'multiple-choice') {
         const answerInputs = document.querySelectorAll('.answer-input');
         const answers = [];
@@ -229,6 +244,7 @@ function createTask() {
 
     // Reset form
     document.getElementById('create-task-form').reset();
+    document.getElementById('image-preview').style.display = 'none';
     resetAnswerInputs();
     updateTaskTypeUI();
 
@@ -239,6 +255,23 @@ function createTask() {
     setTimeout(() => {
         switchAdminView('view-tasks');
     }, 800);
+}
+
+function previewTaskImage() {
+    const imageInput = document.getElementById('task-image');
+    const previewDiv = document.getElementById('image-preview');
+    const previewImg = document.getElementById('preview-img');
+    
+    if (imageInput.files && imageInput.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            previewImg.src = e.target.result;
+            previewDiv.style.display = 'block';
+        };
+        reader.readAsDataURL(imageInput.files[0]);
+    } else {
+        previewDiv.style.display = 'none';
+    }
 }
 
 // Render admin tasks
@@ -284,6 +317,7 @@ function renderAdminTasks() {
                 <div style="flex: 1;">
                     <h3 style="margin: 0 0 12px 0;">Task #${index + 1}</h3>
                     <div class="task-text"><strong>📝 Question:</strong> ${escapeHtml(task.text)}</div>
+                    ${task.image ? `<img src="${task.image}" style="max-width: 100%; max-height: 300px; margin-top: 12px; border-radius: 6px; border: 1px solid #e0e0e0;">` : ''}
                 </div>
                 <span style="background: #8b5cf6; color: white; padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; white-space: nowrap; margin-left: 15px;">
                     ${typeLabel}
@@ -366,6 +400,7 @@ function renderStudentTasks() {
                 <div style="flex: 1;">
                     <h3 style="margin: 0 0 12px 0;">Task #${index + 1}</h3>
                     <div class="task-text"><strong>📝 Question:</strong> ${escapeHtml(task.text)}</div>
+                    ${task.image ? `<img src="${task.image}" style="max-width: 100%; max-height: 300px; margin-top: 12px; border-radius: 6px; border: 1px solid #e0e0e0;">` : ''}
                 </div>
                 <span style="background: #8b5cf6; color: white; padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; white-space: nowrap; margin-left: 15px;">
                     ${task.type === 'multiple-choice' ? '🎯 Multiple Choice' : '📄 Text Input'}
