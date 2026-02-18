@@ -774,6 +774,46 @@ function backToTasksList() {
 }
 
 // Render admin submissions
+function calculateStudentScore(studentName) {
+    // Get all submissions for this student
+    const studentSubmissions = appData.submissions.filter(sub => sub.studentName === studentName);
+    
+    let correctCount = 0;
+    let totalCount = 0;
+    
+    // Group submissions by task (get latest for each task)
+    const taskSubmissions = {};
+    studentSubmissions.forEach(sub => {
+        if (!taskSubmissions[sub.taskId]) {
+            taskSubmissions[sub.taskId] = sub;
+        }
+    });
+    
+    // Calculate score
+    Object.keys(taskSubmissions).forEach(taskId => {
+        const sub = taskSubmissions[taskId];
+        const task = appData.tasks.find(t => t.id == taskId);
+        
+        // Only count if task exists and has a correct answer set
+        if (task && task.correctAnswer) {
+            totalCount++;
+            
+            // Check if answer is correct
+            if (task.type === 'multiple-choice') {
+                if (sub.answer === task.correctAnswer) {
+                    correctCount++;
+                }
+            } else {
+                if (sub.answer.toLowerCase() === task.correctAnswer.toLowerCase()) {
+                    correctCount++;
+                }
+            }
+        }
+    });
+    
+    return { correct: correctCount, total: totalCount };
+}
+
 function renderAdminSubmissions() {
     const container = document.getElementById('admin-submissions-list');
     
@@ -795,10 +835,28 @@ function renderAdminSubmissions() {
     Object.keys(submissionsByStudent).forEach(studentName => {
         const studentSubmissions = submissionsByStudent[studentName];
         const latestSubmission = studentSubmissions[studentSubmissions.length - 1];
+        const score = calculateStudentScore(studentName);
+        
+        // Determine score color based on percentage
+        let scoreColor = '#8b5cf6';
+        let scoreBackground = '#f3e8ff';
+        if (score.total > 0) {
+            const percentage = (score.correct / score.total) * 100;
+            if (percentage === 100) {
+                scoreColor = '#4CAF50';
+                scoreBackground = '#e8f5e9';
+            } else if (percentage >= 70) {
+                scoreColor = '#ff9800';
+                scoreBackground = '#fff3e0';
+            } else if (percentage < 50) {
+                scoreColor = '#f44336';
+                scoreBackground = '#ffebee';
+            }
+        }
 
         html += `<div class="student-submission-group">
             <div class="student-submission-header">
-                <div style="display: flex; align-items: center; gap: 10px;">
+                <div style="display: flex; align-items: center; gap: 10px; flex: 1;">
                     <span style="font-size: 20px;">👤</span>
                     <div>
                         <h3 style="margin: 0; font-size: 18px;">${escapeHtml(studentName)}</h3>
@@ -806,6 +864,10 @@ function renderAdminSubmissions() {
                     </div>
                 </div>
                 <div style="display: flex; align-items: center; gap: 15px;">
+                    <div style="background: ${scoreBackground}; border: 2px solid ${scoreColor}; padding: 8px 14px; border-radius: 8px; text-align: center; min-width: 100px;">
+                        <p style="margin: 0; font-size: 12px; color: #666;">Score</p>
+                        <p style="margin: 4px 0 0 0; font-size: 22px; font-weight: 700; color: ${scoreColor};">${score.correct}/${score.total}</p>
+                    </div>
                     <p style="margin: 0; font-size: 12px; color: #999;">📅 ${latestSubmission.submittedAt}</p>
                     <button class="btn-secondary" style="padding: 6px 14px; font-size: 12px;" onclick="allowStudentRetake('${studentName}')">🔄 Allow Retake</button>
                 </div>
