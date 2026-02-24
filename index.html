@@ -20,16 +20,11 @@
                 <h1>Quizzer</h1>
             </div>
             <p class="subtitle">Skillwill - ის საგამოცდო სივრცე</p>
-            
-            <div class="role-selector">
-                <button class="role-btn active" data-role="admin">ადმინისთვის</button>
-                <button class="role-btn" data-role="student">სტუდენტისთვის</button>
-            </div>
 
             <form id="login-form">
                 <div class="form-group">
-                    <label for="username">მომხმარებელი : </label>
-                    <input type="text" id="username" required>
+                    <label for="email">ელ-ფოსტა : </label>
+                    <input type="email" id="email" required>
                 </div>
                 <div class="form-group">
                     <label for="password">პაროლი : </label>
@@ -40,8 +35,8 @@
 
             <p class="info-text">
                 <strong>დემო ანგარიშები :</strong><br>
-                ადმინი: admin / admin123<br>
-                სტუდენტი: student / student123
+                ადმინი: admin@skillwill.com / admin123<br>
+                სტუდენტი: student@skillwill.com / student123
             </p>
         </div>
     </div>
@@ -152,7 +147,7 @@
                 <div id="student-tasks-view" class="student-view">
                     <h2>ხელმისაწვდომი დავალებები</h2>
                     <div id="student-tasks-list" class="tasks-list">
-                        <p class="empty-state">ნამუშევრები ჯერ არ არის</p>
+                        <p class="empty-state">დავალება ჯერ არ არის</p>
                     </div>
                 </div>
 

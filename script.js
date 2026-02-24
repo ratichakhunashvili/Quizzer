@@ -1,12 +1,12 @@
 // Demo accounts
 const DEMO_ACCOUNTS = {
     admin: {
-        username: 'admin',
+        email: 'admin@skillwill.com',
         password: 'admin123',
         role: 'admin'
     },
     student: {
-        username: 'student',
+        email: 'student@skillwill.com',
         password: 'student123',
         role: 'student'
     }
@@ -64,14 +64,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Setup event listeners
 function setupEventListeners() {
-    // Role buttons
-    document.querySelectorAll('.role-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-            document.querySelectorAll('.role-btn').forEach(b => b.classList.remove('active'));
-            this.classList.add('active');
-        });
-    });
-
     // Login form
     document.getElementById('login-form').addEventListener('submit', function(e) {
         e.preventDefault();
@@ -95,20 +87,19 @@ function setupEventListeners() {
 
 // Login function
 function login() {
-    const username = document.getElementById('username').value;
+    const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
-    const selectedRole = document.querySelector('.role-btn.active').dataset.role;
 
     // Check demo accounts
-    if (selectedRole === 'admin' && DEMO_ACCOUNTS.admin.username === username && DEMO_ACCOUNTS.admin.password === password) {
-        currentUser = { username, role: 'admin' };
+    if (DEMO_ACCOUNTS.admin.email === email && DEMO_ACCOUNTS.admin.password === password) {
+        currentUser = { email, role: 'admin' };
         showAdminDashboard();
-    } else if (selectedRole === 'student' && DEMO_ACCOUNTS.student.username === username && DEMO_ACCOUNTS.student.password === password) {
-        currentUser = { username, role: 'student' };
+    } else if (DEMO_ACCOUNTS.student.email === email && DEMO_ACCOUNTS.student.password === password) {
+        currentUser = { email, role: 'student' };
         showStudentDashboard();
     } else {
-        alert('Invalid credentials. Please check your username and password.');
-        document.getElementById('username').value = '';
+        alert('Invalid credentials. Please check your email and password.');
+        document.getElementById('email').value = '';
         document.getElementById('password').value = '';
     }
 }
@@ -147,7 +138,7 @@ function logout() {
         submissionRefreshInterval = null;
     }
     showLoginPage();
-    document.getElementById('username').value = '';
+    document.getElementById('email').value = '';
     document.getElementById('password').value = '';
 }
 
